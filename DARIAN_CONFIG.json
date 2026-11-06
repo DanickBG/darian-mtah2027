@@ -1,0 +1,29 @@
+{
+  "competition_labels_used_for_training_or_selection": false,
+  "model_relative_path": "models/DaRiAn.joblib",
+  "model_sha256": "a9c55312ce995cd6a8bf4c83dc03fb61b02db568a6db601b8bcb6b4126f243df",
+  "rows": 199319,
+  "selected_version": "v4",
+  "source_sha256": {
+    "evaluation/possession_metrics.py": "341bad48904b489d6e875397b27687f5d6a4d22a397f3dc8af3a00d48f16874d",
+    "evaluation/run_evaluation.py": "1c61564fe52499ba4af3006fb5eb4147b825e92bf516651add80de49d267b19f",
+    "evaluation/validate_submission.py": "07ac29499acbd337e1dc1de1832d63f6e1fa1d981e22f6ad08212529e2bbee14",
+    "games.py": "3b2122794e9e0476e2b3a871d14880e5fa47c4feaeacf99caef054c2309076ce",
+    "starter/inference_features.py": "9fda9f770b902f3831ae5e3fec65f165dd5ba71d7623ee41300907a558ba10f1",
+    "starter/load_atd.py": "0db4230c56ceceba12d48659a61d842383c2f524f74250570fbe77502ea660cd",
+    "starter/load_homography.py": "3bc547b8034766023520b0bc2ffd5a4650ce60c9e20c09796cb4a0d805327bd8",
+    "starter/load_smart_tagging.py": "cacfe90acf1deb37b3aa3e4666d6a9d5595c1766d59fe24c9150e1a1d51d0c64",
+    "starter/possession_v4.py": "f30b0ac94e16a9590e2e10e7a9c51542647be1b5cb50b3a3d1b5f5733cc750c8",
+    "starter/robust_possession.py": "e3dfe0cd7f16a58264a72f565ad255596fcfe4bf65d28d0be378ab0a30fa71d0",
+    "starter/run_darian.py": "a7445750d617792397516977056c0344dd8be8bc372a59e7a7901a472bfb5750",
+    "starter/sequence_possession.py": "e729b810ea51e6df7bf922dd6791cf6f95278c4ffaefe17a99b2a290c8c4c641",
+    "starter/test_features.py": "5cd403688bd999e1e4fb2107b1c53c34e0a0e0bff723a9b684c0e8d980f15ed7",
+    "starter/test_possession.py": "590b295b787f043925d7918e37f37796015c6d447294ff40253a9c5fb835527b",
+    "starter/tracking_io.py": "9b012fdfb7bac3722b33265ac7d9fdb7e6d037972bf0ee7e9dfddfad31363371",
+    "starter/train_possession_v4.py": "516721b4246191547454024503f49b46f5001e0e35daba09bb535af1140f87cb",
+    "starter/training_data.py": "201047799732a591b43f1b905f9500c92a09b9cb165bdaf2471370856824aeb8",
+    "starter/utils.py": "24ac3f909afbfc060d5757737b5e1c3d409f1564f8056fdf9338dbcf961897e1"
+  },
+  "submission_sha256": "b93cae4a40ba0e5db253b2ac7b8263699ff7b1ee0913adb165bb582b56a22d62",
+  "team": "DaRiAn"
+}
