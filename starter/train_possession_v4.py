@@ -38,6 +38,23 @@ from starter.training_data import (  # noqa: E402
 SWITCH_COSTS = (0.25, 0.5, 1.0, 2.0)
 MINIMUM_SECONDS = (0.0, 0.4, 0.8)
 DECODE_STEP = 5
+SPELLF1_TARGET = 0.49
+
+
+def select_decoder_config(candidates):
+    """Prefer the highest spellF1 subject to the challenge floor and worst-case robustness.
+
+    The fundraiser metric is the mean possession-spell F1 over IoU 0.3..0.7. Higher is better
+    because `headline()` records `stats["spell_f1_mean"]` and the board ranks on that quantity.
+    We therefore enforce a minimum floor before using the historical development objective.
+    """
+    feasible = [
+        row for row in candidates
+        if row["mean_spellF1"] >= SPELLF1_TARGET and row["worst_profile_spellF1"] >= SPELLF1_TARGET
+    ]
+    pool = feasible or candidates
+    return max(pool, key=lambda row: (row["selection_objective"], row["mean_spellF1"],
+                                      -row["minimum_s"], -row["switch_cost"]))
 
 
 def download_third(root=THIRD_ROOT):
@@ -151,8 +168,7 @@ def main():
             candidates.append(candidate)
             print("Game-wise development: minimum {:.1f}s, cost {:.2f}, mean {:.4f}, worst {:.4f}.".format(
                 minimum, cost, mean_score, worst_profile), flush=True)
-    selected = max(candidates, key=lambda row: (row["selection_objective"], row["mean_spellF1"],
-                                               -row["minimum_s"], -row["switch_cost"]))
+    selected = select_decoder_config(candidates)
     settings = {name: selected[name] for name in ("switch_cost", "minimum_s", "step")}
     sources = [Path(__file__), ROOT / "starter/robust_possession.py", ROOT / "starter/sequence_possession.py",
                ROOT / "starter/training_data.py", ROOT / "starter/tracking_io.py", ROOT / "games.py"]
